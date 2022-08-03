@@ -3,6 +3,23 @@ const start = document.querySelector(".start")
 const quizCard = document.querySelector(".quizCard")
 let answerButtons = document.querySelectorAll(".button")
 
+
+const questionsArray = [{
+    buttonOne : "Container",
+    buttonTwo : "Test"
+}]
+
+
+const nextQuestionFunction = (event) => {
+    if (event.classList.contains ("correctAnswer")) {
+        console.log("Correct Button Pressed")
+    } else if (event.classList.contains ("incorrectAnswer")) {
+        console.log("Incorrect Button Pressed")
+    }
+}
+
+console.log(questionsArray[0])
+
 start.addEventListener("click", () => {
     quizCard.innerHTML = `
     <div class="quizContainer">
@@ -26,10 +43,10 @@ start.addEventListener("click", () => {
                 </div>
             </div>
         </div>`
-    answerButtons=document.querySelectorAll(".button");
+    answerButtons = document.querySelectorAll(".button");
     answerButtons.forEach( (button) => {
         button.addEventListener("click", () => {
-                console.log("Pressed")
+                nextQuestionFunction(button);
             })
     })
 })
