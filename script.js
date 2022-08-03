@@ -1,6 +1,7 @@
 //add query selector to button -> add event listener to button.
 const start = document.querySelector(".start")
 const quizCard = document.querySelector(".quizCard")
+let answerButtons = document.querySelectorAll(".button")
 
 start.addEventListener("click", () => {
     quizCard.innerHTML = `
@@ -25,7 +26,15 @@ start.addEventListener("click", () => {
                 </div>
             </div>
         </div>`
+    answerButtons=document.querySelectorAll(".button");
+    answerButtons.forEach( (button) => {
+        button.addEventListener("click", () => {
+                console.log("Pressed")
+            })
+    })
 })
+
+
 
 
 //when start button is pressed, create question 1 (deleting the start button in the process.) ->
