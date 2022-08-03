@@ -2,18 +2,53 @@
 const start = document.querySelector(".start")
 const quizCard = document.querySelector(".quizCard")
 let answerButtons = document.querySelectorAll(".button")
+let image = document.querySelector("#displayImage")
 
 
 const questionsArray = [{
-    buttonOne : "Container",
-    buttonTwo : "Test"
+    buttonOne : {
+        value: "Container",
+        isCorrect : true
+    },
+    buttonTwo : {
+        value: "Two",
+        isCorrect: false
+    },
+    buttonThree: {
+        value: "Three",
+        isCorrect: false
+    },
+    buttonFour : {
+        value: "Four",
+        isCorrect: false
+    }
 }]
 
+//create a function called handleCorrect Answer
 
-const nextQuestionFunction = (event) => {
+const handleCardChange = (event) => {
+   answerButtons[0].innerHTML = questionsArray[0].buttonOne.value;
+   answerButtons[1].innerHTML = questionsArray[0].buttonTwo.value;
+   answerButtons[2].innerHTML = questionsArray[0].buttonThree.value;
+   answerButtons[3].innerHTML = questionsArray[0].buttonFour.value;
+   if (questionsArray[0].buttonOne.isCorrect === true) {
+    answerButtons[0].classList.add ("correctAnswer")
+    console.log(answerButtons[0].classList)
+    console.log(answerButtons[1].classList)
+   }
+}
+//do the same as above for incorrect instances see if you CAN use a for loop but i doubt it.
+
+const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
-        console.log("Correct Button Pressed")
+        //INCREASE ARRAY INDEX HERE
+        answerButtons.forEach((button) => {
+            button.classList.remove("correctAnswer")
+            button.classList.remove("incorrectAnswer")
+        })
+        handleCardChange(event)
     } else if (event.classList.contains ("incorrectAnswer")) {
+        //CHange to class change of button (Make it red) and lower life points.
         console.log("Incorrect Button Pressed")
     }
 }
@@ -43,10 +78,12 @@ start.addEventListener("click", () => {
                 </div>
             </div>
         </div>`
+    image = document.querySelector("#displayImage");   
     answerButtons = document.querySelectorAll(".button");
     answerButtons.forEach( (button) => {
         button.addEventListener("click", () => {
-                nextQuestionFunction(button);
+                handleNextQuestion(button);
+                console.log(button)
             })
     })
 })
