@@ -5,11 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- DIv that JS populates. Start button is replaced upon press with question 1 -->
-    <div>
-        <button>START</button>
+    <div class="quizCard">
+        <!-- Create a mockup of the question interface in HTML FIRST. Decide on class names and positioning
+        now while you can still easily make those changes. Create a set of basic styles for when a button is 
+        pressed, or when a life is lost maybe? -->
+            <div class="imageContainer">
+                <img src="" alt="IMAGE TO DISPLAY HERE" class="displayImage">
+            </div>
+            <div class="buttonContainer">
+                <div class="buttonRowOne">
+                    <button class="button buttonOne correctAnswer">B1C</button> <button class="button buttonTwo incorrectAnswer">B2</button>
+                </div>
+                <div class = "buttonRowTwo">
+                    <button class="button buttonThree incorrectAnswer">B3</button> <button class="button buttonFour incorrectAnswer">B4</button> 
+                </div>
+            </div>
+            <div class="scoreContainer">
+                <!-- Score flex containers 00 on left score on right -->
+                <div class="livesRemaining">
+                    <p>OOO</p>
+                </div>
+                <div class="scoreTally">    
+                    <p>Score:</p>
+                </div>
+            </div>
+
+
+
+
+        <!-- <button>START</button> -->
     </div>
     
 </body>
