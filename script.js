@@ -19,6 +19,13 @@ const reDeclaredQueries = () => {
     scoreNumber = document.querySelector("#scoreNumber")
 };
 
+const handleWin = () => {
+    if (quizStats.number > questionsArray.length) {
+        quizCard.innerHTML = `
+        <h1>YOU WIN</h1>
+        `
+    };
+};
 
 const handleReset = () => {
     resetButton.addEventListener("click", () => {
@@ -133,7 +140,9 @@ const handleCorrectAnswer = () => {
 
 const handleCardChange = (event) => {
    quizStats.score = quizStats.score + 5; 
+   
    handleQuizStats();
+   handleWin();
    handleReset();
    answerButtons[0].innerHTML = questionsArray[quizStats.value].buttonOne.value;
    answerButtons[1].innerHTML = questionsArray[quizStats.value].buttonTwo.value;
