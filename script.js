@@ -278,12 +278,17 @@ const handleCorrectAnswer = (event) => {
 }
 
 const removeCorrectBG = (event) => {
-    event.classList.remove("correctAnswerBG")
-    event.classList.remove("incorrectAnswerBG")
+    event.id = "";
+    console.log(event)
 }
 
 const timeoutBGS = (event) => {
     setTimeout(removeCorrectBG, 500, event)
+}
+
+const timeoutCardChange = (event) => {
+    setTimeout(handleQuestionChange, 500, event)
+    setTimeout(handleCardChange, 500, event)
 }
 
 const handleCardChange = (event) => {
@@ -313,17 +318,16 @@ const handleIncorrectAnswer = () => {
 //This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
-        event.classList.add("correctAnswerBG")
+        event.id = "correctAnswerBG"
         timeoutBGS(event);
         answerButtons.forEach((button) => {
             button.classList.remove("correctAnswer")
             button.classList.remove("incorrectAnswer")
         });
-        handleQuestionChange();
-        handleCardChange(event);
+     timeoutCardChange(event);
     } else if (event.classList.contains ("incorrectAnswer")) {
         //CHange to class change of button (Make it red) and lower life points.
-       event.classList.add("incorrectAnswerBG");
+        event.id = "incorrectAnswerBG";
        timeoutBGS(event);
        handleIncorrectAnswer();
     }

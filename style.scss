@@ -1,6 +1,8 @@
 
 $primaryBackgroundColor : rgb(189, 134, 134);
+$primaryHeaderColor: rgb(128, 77, 77);
 $primaryButtonBackgroundColor: rgb(118, 118, 209);
+$hoverButtonBackgroundColor: rgb(0, 0, 45);
 
 * {
     margin: 0;
@@ -58,6 +60,14 @@ body {
         padding-top: 10px;
         padding-bottom: 10px;
 
+        #correctAnswerBG {
+            background: green;
+        }
+
+        #incorrectAnswerBG {
+            background: red;
+        }
+
         .button {
             padding: 5%;
             padding-left: 10%;
@@ -66,14 +76,19 @@ body {
             margin-left: 5%;
             border-radius: 10px;
             background: $primaryButtonBackgroundColor;
+            
         }
+
+        // .button:hover {
+        //     background: $hoverButtonBackgroundColor;
+        // }
     }
 }
 
 header {
     display: flex;
     justify-content: center;
-    border: 2px solid black;
+    background: $primaryHeaderColor;
 
     button {
         border: 2px solid black;
@@ -93,9 +108,7 @@ img {
     width: 100%;
 }
 
-.correctAnswerBG {
-    background: green;
-}
+
 
 .incorrectAnswerBG {
     background: red;

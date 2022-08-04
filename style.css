@@ -52,6 +52,12 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+.buttonContainer .buttonRowOne #correctAnswerBG, .buttonContainer .buttonRowTwo #correctAnswerBG {
+  background: green;
+}
+.buttonContainer .buttonRowOne #incorrectAnswerBG, .buttonContainer .buttonRowTwo #incorrectAnswerBG {
+  background: red;
+}
 .buttonContainer .buttonRowOne .button, .buttonContainer .buttonRowTwo .button {
   padding: 5%;
   padding-left: 10%;
@@ -65,7 +71,7 @@ body {
 header {
   display: flex;
   justify-content: center;
-  border: 2px solid black;
+  background: rgb(128, 77, 77);
 }
 header button {
   border: 2px solid black;
@@ -82,10 +88,6 @@ img {
   display: block;
   height: 100%;
   width: 100%;
-}
-
-.correctAnswerBG {
-  background: green;
 }
 
 .incorrectAnswerBG {
