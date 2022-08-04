@@ -156,7 +156,7 @@ const questionsArray = [{
         value: "White Witch Moth",
         isCorrect: true
     },
-    image : "./images/weather.jpeg",
+    image : "./images/whitewitchmoth.jpeg",
 
     question: "Which of these is the largest insect in the world"
 },{
@@ -176,10 +176,32 @@ const questionsArray = [{
         value: "Beetles",
         isCorrect: false
     },
-    image : "./images/dragonfliesonearth.jpeg",
+    image : "./images/weather.jpeg",
 
     question: "Which of these bugs are thought to predict the weather in one way or the other"
+},{
+    buttonOne : {
+        value: "Screaming",
+        isCorrect: false
+    },
+    buttonTwo : {
+        value: "Quacking",
+        isCorrect: true
+    },
+    buttonThree : {
+        value: "Buzzing",
+        isCorrect: false
+    },
+    buttonFour : {
+        value: "Whistling",
+        isCorrect: false
+    },
+    image : "./images/queenbee.jpeg",
+
+    question: "What does the 'piping' of a Queen Bee sound like?"
 },]
+
+//all questions taken from facts.net/bug-facts
 
 //create a function called handleCorrect Answer
 
