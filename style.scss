@@ -22,6 +22,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 35%;
 }
 
 .scoreContainer {
@@ -48,4 +49,17 @@ header {
     p {
         border: 2px solid black;
     }
+}
+
+.imageContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+img {
+    display:block;
+    height: 100%;
+    width: 100%;
 }
