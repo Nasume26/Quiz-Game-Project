@@ -166,4 +166,19 @@ header #resetButton:hover {
   font-size: 2rem;
   text-align: center;
   color: White;
+}
+
+#victoryContainer {
+  display: flex;
+  flex-direction: column;
+  background: rgb(205, 76, 76);
+  border: 2px solid rgb(130, 42, 42);
+  box-shadow: 4px 3px rgb(66, 25, 25);
+  padding: 5px;
+  border-radius: 10px;
+}
+#victoryContainer #winText, #victoryContainer h3 {
+  font-size: 2rem;
+  text-align: center;
+  color: White;
 }/*# sourceMappingURL=style.css.map */

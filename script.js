@@ -33,7 +33,7 @@ const handleLiveLoss = () => {
         quizCard.innerHTML = `
         <div id= "lossContainer">
             <h3>You Lost! Hit Reset to try again!</h3>
-            <h4>You had a score of ${quizStats.score} </h4>
+            <h4>You had a score of ${quizStats.score}.</h4>
         </div>
         `
     }
@@ -44,8 +44,10 @@ const handleLiveLoss = () => {
 const handleWin = () => {
     if (quizStats.number > questionsArray.length) {
         quizCard.innerHTML = `
-        <h1>YOU WIN</h1>
-        <h3>You had a score of ${quizStats.score}</h3>
+        <div id = "victoryContainer">
+            <h1 id = "winText">YOU WIN!!!</h1>
+            <h3>You had a score of ${quizStats.score}.</h3>
+        </div>
         `
     };
 };
