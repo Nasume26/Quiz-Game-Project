@@ -5,6 +5,12 @@ let answerButtons = document.querySelectorAll(".button")
 let image = document.querySelector("#displayImage")
 
 
+const questionNumber = {
+    value : 0,
+    number : 1
+
+}
+
 const questionsArray = [{
     buttonOne : {
         value: "Container",
@@ -22,20 +28,69 @@ const questionsArray = [{
         value: "Four",
         isCorrect: false
     }
+}, {
+    buttonOne : {
+        value: "Correct Answer",
+        isCorrect: true
+    },
+    buttonTwo : {
+        value: "Incorrect Answer",
+        isCorrect: false
+    },
+    buttonThree : {
+        value: "Incorrect Answer",
+        isCorrect: false
+    },
+    buttonFour : {
+        value: "Incorrect Answer",
+        isCorrect: false
+    }
 }]
 
 //create a function called handleCorrect Answer
 
+const handleQuestionChange = () => {
+    questionNumber.value = questionNumber.value + 1;
+    questionNumber.number = questionNumber.number + 1;
+};
+
+const handleCorrectAnswer = () => {
+    if (questionsArray[questionNumber.value].buttonOne.isCorrect === true) {
+        answerButtons[0].classList.add ("correctAnswer")
+        console.log(answerButtons[0].classList)
+        console.log(answerButtons[1].classList)
+       } 
+    if (questionsArray[questionNumber.value].buttonOne.isCorrect === false) {
+        answerButtons[0].classList.add ("incorrectAnswer")
+       } 
+    if (questionsArray[questionNumber.value].buttonTwo.isCorrect === true) {
+        answerButtons[1].classList.add ("correctAnswer")
+       }
+    if (questionsArray[questionNumber.value].buttonTwo.isCorrect === false) {
+        answerButtons[1].classList.add ("incorrectAnswer")
+       }
+    if (questionsArray[questionNumber.value].buttonThree.isCorrect === true) {
+        answerButtons[2].classList.add ("correctAnswer")
+       }
+    if (questionsArray[questionNumber.value].buttonThree.isCorrect === false) {
+        answerButtons[2].classList.add ("incorrectAnswer")
+       } 
+    if (questionsArray[questionNumber.value].buttonFour.isCorrect === true) {
+        answerButtons[3].classList.add ("correctAnswer")
+       }
+    if (questionsArray[questionNumber.value].buttonFour.isCorrect === false) {
+        answerButtons[3].classList.add ("incorrectAnswer")
+       }
+}
+
+
 const handleCardChange = (event) => {
-   answerButtons[0].innerHTML = questionsArray[0].buttonOne.value;
-   answerButtons[1].innerHTML = questionsArray[0].buttonTwo.value;
-   answerButtons[2].innerHTML = questionsArray[0].buttonThree.value;
-   answerButtons[3].innerHTML = questionsArray[0].buttonFour.value;
-   if (questionsArray[0].buttonOne.isCorrect === true) {
-    answerButtons[0].classList.add ("correctAnswer")
-    console.log(answerButtons[0].classList)
-    console.log(answerButtons[1].classList)
-   }
+   answerButtons[0].innerHTML = questionsArray[questionNumber.value].buttonOne.value;
+   answerButtons[1].innerHTML = questionsArray[questionNumber.value].buttonTwo.value;
+   answerButtons[2].innerHTML = questionsArray[questionNumber.value].buttonThree.value;
+   answerButtons[3].innerHTML = questionsArray[questionNumber.value].buttonFour.value;
+   handleCorrectAnswer();
+
 }
 //do the same as above for incorrect instances see if you CAN use a for loop but i doubt it.
 
@@ -45,8 +100,9 @@ const handleNextQuestion = (event) => {
         answerButtons.forEach((button) => {
             button.classList.remove("correctAnswer")
             button.classList.remove("incorrectAnswer")
-        })
-        handleCardChange(event)
+        });
+        handleQuestionChange();
+        handleCardChange(event);
     } else if (event.classList.contains ("incorrectAnswer")) {
         //CHange to class change of button (Make it red) and lower life points.
         console.log("Incorrect Button Pressed")
