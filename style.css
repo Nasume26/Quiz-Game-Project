@@ -22,7 +22,7 @@ body {
   height: 100%;
 }
 .quizCard .quizContainer {
-  border: 2px solid red;
+  border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,10 +38,17 @@ body {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+.quizCard .quizContainer .questionContainer {
+  background: rgb(147, 55, 55);
+}
+.quizCard .quizContainer .questionContainer #questionDisplay {
+  text-align: center;
+  font-size: 1.2rem;
+}
 .quizCard .quizContainer .buttonContainer {
   display: flex;
   flex-direction: column;
-  border: 2px solid blue;
+  border-top: 2px solid black;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -76,7 +83,7 @@ body {
 .quizCard .quizContainer .scoreContainer {
   display: flex;
   justify-content: space-evenly;
-  border: 2px solid green;
+  border-top: 2px solid black;
   width: 100%;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
