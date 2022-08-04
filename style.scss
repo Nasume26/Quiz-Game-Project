@@ -241,6 +241,25 @@ header {
             margin-bottom: 45%;
             margin-top: 40%;
 
+            .numberContainer {
+                font-size: 3rem;
+            }
+
+            .questionContainer {
+                #questionDisplay {
+                    font-size: 2.2rem;
+                }
+            }
+
+            .buttonContainer {
+                .buttonRowOne , .buttonRowTwo {
+                    .button{
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+
             .scoreContainer {
     
                 .livesRemaining, .scoreTally {

@@ -192,6 +192,15 @@ header #resetButton:hover {
     margin-bottom: 45%;
     margin-top: 40%;
   }
+  .quizCard .quizContainer .numberContainer {
+    font-size: 3rem;
+  }
+  .quizCard .quizContainer .questionContainer #questionDisplay {
+    font-size: 2.2rem;
+  }
+  .quizCard .quizContainer .buttonContainer .buttonRowOne .button, .quizCard .quizContainer .buttonContainer .buttonRowTwo .button {
+    font-size: 1.5rem;
+  }
   .quizCard .quizContainer .scoreContainer .livesRemaining p, .quizCard .quizContainer .scoreContainer .scoreTally p {
     color: white;
     font-size: 2rem;
