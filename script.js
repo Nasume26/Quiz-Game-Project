@@ -8,6 +8,7 @@ let questionText = document.querySelector("#questionDisplay")
 let currentQuestion = document.querySelector("#currentQuestion")
 let maxQuestions = document.querySelector("#maxQuestions")
 let scoreNumber = document.querySelector("#scoreNumber")
+let liveCounter = document.querySelector("#liveCounter")
 
 
 const reDeclaredQueries = () => {
@@ -16,13 +17,32 @@ const reDeclaredQueries = () => {
     maxQuestions = document.querySelector ("#maxQuestions");
     questionText = document.querySelector("#questionDisplay");   
     answerButtons = document.querySelectorAll(".button");
-    scoreNumber = document.querySelector("#scoreNumber")
+    scoreNumber = document.querySelector("#scoreNumber");
+    liveCounter = document.querySelector("#liveCounter");
 };
+
+const handleLiveLoss = () => {
+    if (quizStats.lives >= 3 ) {
+        liveCounter.innerHTML = "XOO"
+    }else if (quizStats.lives >= 2) {
+        liveCounter.innerHTML = "XXO"
+    }else if (quizStats.lives >= 1) {
+        liveCounter.innerHTML = "XXX LAST LIFE!!!"
+        console.log(quizStats.lives)
+    } else if (quizStats.lives >= 0) {
+        quizCard.innerHTML = `
+        <h3>You Lost! Hit Reset to try again!</h3>
+        <h4>You had a score of ${quizStats.score}`
+    }
+    quizStats.lives = quizStats.lives -1;
+    console.log(quizStats.lives)
+} 
 
 const handleWin = () => {
     if (quizStats.number > questionsArray.length) {
         quizCard.innerHTML = `
         <h1>YOU WIN</h1>
+        <h3>You had a score of ${quizStats.score}</h3>
         `
     };
 };
@@ -42,7 +62,7 @@ const handleScoreDecrement = () => {
         quizStats.score = 0;
     } else if (quizStats.score > 2) {
         quizStats.score = quizStats.score - 2;
-    }
+    };
 }
 
 const handleQuizStats = () => {
@@ -58,7 +78,7 @@ const quizStats = {
     lives: 3
 }
 
-
+//Questions array with all the questions inside objects. 
 const questionsArray = [{
     buttonOne : {
         value: "Container",
@@ -156,6 +176,12 @@ const handleCardChange = (event) => {
 //do the same as above for incorrect instances see if you CAN use a for loop but i doubt it.
 
 
+const handleIncorrectAnswer = () => {
+    handleScoreDecrement();
+    handleQuizStats();
+    handleLiveLoss();
+}
+
 //This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
@@ -168,17 +194,15 @@ const handleNextQuestion = (event) => {
         handleCardChange(event);
     } else if (event.classList.contains ("incorrectAnswer")) {
         //CHange to class change of button (Make it red) and lower life points.
-        handleScoreDecrement();
-        handleQuizStats();
-        console.log("Incorrect Button Pressed")
+       handleIncorrectAnswer();
     }
 }
 
-console.log(questionsArray[0])
 
-    start.addEventListener("click", () => {
-        startButtonOnReset()
-    })
+
+start.addEventListener("click", () => {
+    startButtonOnReset()
+})
 
 
 
@@ -204,7 +228,7 @@ const startButtonOnReset = () => {
                 </div>
                 <div class="scoreContainer">
                     <div class="livesRemaining">
-                        <p>OOO</p>
+                        <p id = "liveCounter">OOO</p>
                     </div>
                     <div class="scoreTally">    
                         <p>Score: <span id = "scoreNumber">0</span></p>
@@ -217,7 +241,6 @@ const startButtonOnReset = () => {
             answerButtons.forEach( (button) => {
                 button.addEventListener("click", () => {
                         handleNextQuestion(button);
-                        console.log(button)
                     })
             })
         
