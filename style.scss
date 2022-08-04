@@ -163,10 +163,22 @@ body {
     background: rgb(97, 109, 214);
     border: 2px solid rgb(29, 72, 131);
     box-shadow: 3px 3px rgb(24, 47, 112);
+    color: white;
 }
 
 .start:hover {
     background:rgb(127, 138, 236);
+}
+
+#resetButton {
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 2px solid rgb(98, 34, 34);
+    background: rgb(161, 56, 56);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
 }
 
 
@@ -175,10 +187,6 @@ header {
     display: flex;
     justify-content: center;
     background: $primaryHeaderColor;
-
-    button {
-        border: 2px solid black;
-    }
 }
 
 
