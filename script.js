@@ -32,7 +32,7 @@ const handleLiveLoss = () => {
     } else if (quizStats.lives >= 0) {
         quizCard.innerHTML = `
         <h3>You Lost! Hit Reset to try again!</h3>
-        <h4>You had a score of ${quizStats.score}`
+        <h4>You had a score of ${quizStats.score} </h4>`
     }
     quizStats.lives = quizStats.lives -1;
     console.log(quizStats.lives)
@@ -136,10 +136,30 @@ const questionsArray = [{
         value: "4 Billion Years",
         isCorrect: false
     },
-    image : "./images/download.png",
+    image : "./images/dragonfliesonearth.jpeg",
 
     question: "Roughly how long have dragonflies been on earth?"
-}]
+},{
+    buttonOne : {
+        value: "Atlas Moth",
+        isCorrect: false
+    },
+    buttonTwo : {
+        value: "Titan Beetle",
+        isCorrect: false
+    },
+    buttonThree : {
+        value: "Hercules Beetle",
+        isCorrect: false
+    },
+    buttonFour : {
+        value: "White Witch Moth",
+        isCorrect: true
+    },
+    image : "./images/whitewitchmoth.jpeg",
+
+    question: "Which of these is the largest insect in the world"
+},]
 
 //create a function called handleCorrect Answer
 
