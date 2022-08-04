@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
 
 $primaryBackgroundColor : rgb(189, 134, 134);
 $primaryHeaderColor: rgb(128, 77, 77);
 $primaryButtonBackgroundColor: rgb(118, 118, 209);
-$hoverButtonBackgroundColor: rgb(0, 0, 45);
+$hoverButtonBackgroundColor: rgb(171, 171, 242);
+$primaryButtonBorderColor: rgb(88, 88, 209);
+$primaryButtonShadowColor: rgb(72, 72, 155);
+$numberContainerBackground: rgb(199, 95, 95);
+$primaryFont : 'Mouse Memoirs', sans-serif;
+$primaryImageBackground: rgb(223, 78, 78);
 
 * {
     margin: 0;
     padding: 0;
+    font-family: $primaryFont;
 }
 
 
@@ -25,65 +32,106 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid red;
     height: 100%;
-}
 
-.quizContainer {
-    border: 2px solid red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-}
 
-.scoreContainer {
-    display: flex;
-    justify-content: space-between;
-    border: 2px solid green;
-    width: 100%;
-}
-
-.buttonContainer {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid blue;
-    width: 100%;
-    justify-content: center;
-    align-items: center; 
-
-    .buttonRowOne, .buttonRowTwo {
+    .quizContainer {
+        border: 2px solid red;
         display: flex;
-        justify-content: space-evenly;
-        width: 100%;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        border-radius: 15px;
 
-        #correctAnswerBG {
-            background: green;
+
+        .numberContainer {
+            background: $numberContainerBackground;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
 
-        #incorrectAnswerBG {
-            background: red;
+        .buttonContainer {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid blue;
+            width: 100%;
+            justify-content: center;
+            align-items: center; 
+        
+            .buttonRowOne, .buttonRowTwo {
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+        
+                #correctAnswerBG {
+                    background: green;
+                }
+        
+                #incorrectAnswerBG {
+                    background: red;
+                }
+        
+                .button {
+                    padding: 5%;
+                    padding-left: 10%;
+                    padding-right: 10%;
+                    margin-right: 5%;
+                    margin-left: 5%;
+                    border-radius: 10px;
+                    background: $primaryButtonBackgroundColor;
+                    border: 2px solid $primaryButtonBorderColor;
+                    box-shadow: 3px 3px $primaryButtonShadowColor;
+                    
+                }
+        
+                .button:hover {
+                    background: $hoverButtonBackgroundColor;
+                }
+            }
+        }
+        .scoreContainer {
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid green;
+            width: 100%;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
         }
 
-        .button {
-            padding: 5%;
-            padding-left: 10%;
-            padding-right: 10%;
-            margin-right: 5%;
-            margin-left: 5%;
-            border-radius: 10px;
-            background: $primaryButtonBackgroundColor;
-            
-        }
+        .imageContainer {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            background: $primaryImageBackground;
 
-        // .button:hover {
-        //     background: $hoverButtonBackgroundColor;
-        // }
+            img {
+                display:block;
+                height: 90%;
+                width: 95%;
+                border-radius: 15px;
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+        
+        
     }
+ 
+
+   
 }
+
+
+
+
+
 
 header {
     display: flex;
@@ -95,18 +143,8 @@ header {
     }
 }
 
-.imageContainer {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-}
 
-img {
-    display:block;
-    height: 100%;
-    width: 100%;
-}
+
 
 
 
