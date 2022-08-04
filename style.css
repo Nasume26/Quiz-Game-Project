@@ -215,4 +215,20 @@ header #resetButton:hover {
     padding-right: 100px;
     font-size: 2rem;
   }
+  #lossContainer {
+    padding: 25px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  #lossContainer h3, #lossContainer h4 {
+    font-size: 3rem;
+  }
+  #victoryContainer {
+    padding: 25px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  #victoryContainer #winText, #victoryContainer h3 {
+    font-size: 3rem;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -284,5 +284,22 @@ header {
          
         }
     }
-
+    #lossContainer {
+        padding: 25px;
+        padding-left:150px;
+        padding-right: 150px;
+        h3,h4 {
+            font-size: 3rem;
+        }
+        
+    }
+    #victoryContainer {
+        padding: 25px;
+        padding-left:150px;
+        padding-right: 150px;
+        #winText,h3 {
+            font-size: 3rem;
+        }
+        
+    }
 }
