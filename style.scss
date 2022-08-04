@@ -9,7 +9,7 @@ $primaryButtonShadowColor: rgb(72, 72, 155);
 $numberContainerBackground: rgb(199, 95, 95);
 $primaryFont : 'Mouse Memoirs', sans-serif;
 $primaryImageBackground: rgb(223, 78, 78);
-$quizContainerBorderColor: black;
+$quizContainerBorderColor: rgb(78, 26, 26);
 $questionContainerBackground: rgb(147, 55, 55);
 $answerContainerBackground: rgb(90, 28, 28);
 $scoreContainerBackground: rgb(51, 19, 19);
@@ -48,6 +48,7 @@ body {
         align-items: center;
         width: 90%;
         border-radius: 15px;
+        box-shadow: 2px 2px rgb(57, 21, 21);
 
 
         .numberContainer {
@@ -105,6 +106,7 @@ body {
                     border: 2px solid $primaryButtonBorderColor;
                     box-shadow: 3px 3px $primaryButtonShadowColor;
                     font-size: 1.1rem;
+                    color: rgb(17, 17, 17);
                     
                 }
         
@@ -199,10 +201,18 @@ header {
 
 
 
-
-
-
-.incorrectAnswerBG {
-    background: red;
+#lossContainer {
+    display: flex;
+    flex-direction: column;
+    background: rgb(205, 76, 76);
+    border: 2px solid rgb(130, 42, 42);
+    box-shadow: 4px 3px rgb(66, 25, 25);
+    padding: 5px;
+    border-radius: 10px;
+    h3 , h4 {
+        font-size:2rem;
+        text-align: center;
+        color: White;
+    }
 }
 

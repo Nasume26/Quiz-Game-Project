@@ -31,8 +31,11 @@ const handleLiveLoss = () => {
         console.log(quizStats.lives)
     } else if (quizStats.lives >= 0) {
         quizCard.innerHTML = `
-        <h3>You Lost! Hit Reset to try again!</h3>
-        <h4>You had a score of ${quizStats.score} </h4>`
+        <div id= "lossContainer">
+            <h3>You Lost! Hit Reset to try again!</h3>
+            <h4>You had a score of ${quizStats.score} </h4>
+        </div>
+        `
     }
     quizStats.lives = quizStats.lives -1;
     console.log(quizStats.lives)

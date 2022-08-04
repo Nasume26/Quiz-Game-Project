@@ -22,13 +22,14 @@ body {
   height: 100%;
 }
 .quizCard .quizContainer {
-  border: 2px solid black;
+  border: 2px solid rgb(78, 26, 26);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
   border-radius: 15px;
+  box-shadow: 2px 2px rgb(57, 21, 21);
 }
 .quizCard .quizContainer .numberContainer {
   background: rgb(199, 95, 95);
@@ -51,7 +52,7 @@ body {
 .quizCard .quizContainer .buttonContainer {
   display: flex;
   flex-direction: column;
-  border-top: 2px solid black;
+  border-top: 2px solid rgb(78, 26, 26);
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -81,6 +82,7 @@ body {
   border: 2px solid rgb(88, 88, 209);
   box-shadow: 3px 3px rgb(72, 72, 155);
   font-size: 1.1rem;
+  color: rgb(17, 17, 17);
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne .button:hover, .quizCard .quizContainer .buttonContainer .buttonRowTwo .button:hover {
   background: rgb(171, 171, 242);
@@ -88,7 +90,7 @@ body {
 .quizCard .quizContainer .scoreContainer {
   display: flex;
   justify-content: space-evenly;
-  border-top: 2px solid black;
+  border-top: 2px solid rgb(78, 26, 26);
   width: 100%;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
@@ -151,6 +153,17 @@ header #resetButton:hover {
   background: rgb(192, 103, 103);
 }
 
-.incorrectAnswerBG {
-  background: red;
+#lossContainer {
+  display: flex;
+  flex-direction: column;
+  background: rgb(205, 76, 76);
+  border: 2px solid rgb(130, 42, 42);
+  box-shadow: 4px 3px rgb(66, 25, 25);
+  padding: 5px;
+  border-radius: 10px;
+}
+#lossContainer h3, #lossContainer h4 {
+  font-size: 2rem;
+  text-align: center;
+  color: White;
 }/*# sourceMappingURL=style.css.map */
