@@ -12,6 +12,8 @@ $primaryImageBackground: rgb(223, 78, 78);
 $quizContainerBorderColor: black;
 $questionContainerBackground: rgb(147, 55, 55);
 $answerContainerBackground: rgb(90, 28, 28);
+$scoreContainerBackground: rgb(51, 19, 19);
+$scoreFontColor: white;
 
 * {
     margin: 0;
@@ -59,6 +61,9 @@ body {
 
         .questionContainer {
             background: $questionContainerBackground;
+            width: 100%;
+            padding-top:10px;
+            padding-bottom: 10px;
             #questionDisplay {
                 text-align: center;
                 font-size: 1.2rem;
@@ -72,6 +77,7 @@ body {
             width: 100%;
             justify-content: center;
             align-items: center; 
+            background: $answerContainerBackground;
         
             .buttonRowOne, .buttonRowTwo {
                 display: flex;
@@ -98,6 +104,7 @@ body {
                     background: $primaryButtonBackgroundColor;
                     border: 2px solid $primaryButtonBorderColor;
                     box-shadow: 3px 3px $primaryButtonShadowColor;
+                    font-size: 1.1rem;
                     
                 }
         
@@ -111,8 +118,15 @@ body {
             justify-content: space-evenly;
             border-top: 2px solid $quizContainerBorderColor;
             width: 100%;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            background: $scoreContainerBackground;
+
+            .livesRemaining, .scoreTally {
+                p {
+                    color: $scoreFontColor;
+                }
+            }
         }
 
         .imageContainer {

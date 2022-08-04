@@ -40,6 +40,9 @@ body {
 }
 .quizCard .quizContainer .questionContainer {
   background: rgb(147, 55, 55);
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .quizCard .quizContainer .questionContainer #questionDisplay {
   text-align: center;
@@ -52,6 +55,7 @@ body {
   width: 100%;
   justify-content: center;
   align-items: center;
+  background: rgb(90, 28, 28);
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne, .quizCard .quizContainer .buttonContainer .buttonRowTwo {
   display: flex;
@@ -76,6 +80,7 @@ body {
   background: rgb(118, 118, 209);
   border: 2px solid rgb(88, 88, 209);
   box-shadow: 3px 3px rgb(72, 72, 155);
+  font-size: 1.1rem;
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne .button:hover, .quizCard .quizContainer .buttonContainer .buttonRowTwo .button:hover {
   background: rgb(171, 171, 242);
@@ -85,8 +90,12 @@ body {
   justify-content: space-evenly;
   border-top: 2px solid black;
   width: 100%;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: rgb(51, 19, 19);
+}
+.quizCard .quizContainer .scoreContainer .livesRemaining p, .quizCard .quizContainer .scoreContainer .scoreTally p {
+  color: white;
 }
 .quizCard .quizContainer .imageContainer {
   display: flex;
