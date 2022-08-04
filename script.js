@@ -2,14 +2,31 @@
 const start = document.querySelector(".start")
 const quizCard = document.querySelector(".quizCard")
 let answerButtons = document.querySelectorAll(".button")
-let image = document.querySelector("#displayImage")
+let image = document.querySelector(".displayImage")
+let questionText = document.querySelector("#questionDisplay")
+let currentQuestion = document.querySelector("#currentQuestion")
+let maxQuestions = document.querySelector("#maxQuestions")
 
 
-const questionNumber = {
-    value : 0,
-    number : 1
+const reDeclaredQueries = () => {
+    image = document.querySelector(".displayImage");
+    currentQuestion = document.querySelector("#currentQuestion");
+    maxQuestions = document.querySelector ("#maxQuestions");
+    questionText = document.querySelector("#questionDisplay");   
+    answerButtons = document.querySelectorAll(".button");
+};
 
+const questionCounter = () => {
+    maxQuestions.innerHTML = questionsArray.length;
 }
+
+const quizStats = {
+    value : 0,
+    number : 1,
+    score : 0,
+    lives: 3
+}
+
 
 const questionsArray = [{
     buttonOne : {
@@ -27,73 +44,84 @@ const questionsArray = [{
     buttonFour : {
         value: "Four",
         isCorrect: false
-    }
+    },
+    image : "nullImage",
+
+    question : "Null Question"
 }, {
     buttonOne : {
-        value: "Correct Answer",
+        value: "10 Quintillion",
         isCorrect: true
     },
     buttonTwo : {
-        value: "Incorrect Answer",
+        value: "40 Trillion",
         isCorrect: false
     },
     buttonThree : {
-        value: "Incorrect Answer",
+        value: "78.6 Billion",
         isCorrect: false
     },
     buttonFour : {
-        value: "Incorrect Answer",
+        value: "500 Trillion",
         isCorrect: false
-    }
+    },
+    image : "./images/download.png",
+
+    question: "Roughly how many insects are there in the world?"
 }]
 
 //create a function called handleCorrect Answer
 
 const handleQuestionChange = () => {
-    questionNumber.value = questionNumber.value + 1;
-    questionNumber.number = questionNumber.number + 1;
+    quizStats.value = quizStats.value + 1;
+    quizStats.number = quizStats.number + 1;
 };
 
 const handleCorrectAnswer = () => {
-    if (questionsArray[questionNumber.value].buttonOne.isCorrect === true) {
+    if (questionsArray[quizStats.value].buttonOne.isCorrect === true) {
         answerButtons[0].classList.add ("correctAnswer")
         console.log(answerButtons[0].classList)
         console.log(answerButtons[1].classList)
        } 
-    if (questionsArray[questionNumber.value].buttonOne.isCorrect === false) {
+    if (questionsArray[quizStats.value].buttonOne.isCorrect === false) {
         answerButtons[0].classList.add ("incorrectAnswer")
        } 
-    if (questionsArray[questionNumber.value].buttonTwo.isCorrect === true) {
+    if (questionsArray[quizStats.value].buttonTwo.isCorrect === true) {
         answerButtons[1].classList.add ("correctAnswer")
        }
-    if (questionsArray[questionNumber.value].buttonTwo.isCorrect === false) {
+    if (questionsArray[quizStats.value].buttonTwo.isCorrect === false) {
         answerButtons[1].classList.add ("incorrectAnswer")
        }
-    if (questionsArray[questionNumber.value].buttonThree.isCorrect === true) {
+    if (questionsArray[quizStats.value].buttonThree.isCorrect === true) {
         answerButtons[2].classList.add ("correctAnswer")
        }
-    if (questionsArray[questionNumber.value].buttonThree.isCorrect === false) {
+    if (questionsArray[quizStats.value].buttonThree.isCorrect === false) {
         answerButtons[2].classList.add ("incorrectAnswer")
        } 
-    if (questionsArray[questionNumber.value].buttonFour.isCorrect === true) {
+    if (questionsArray[quizStats.value].buttonFour.isCorrect === true) {
         answerButtons[3].classList.add ("correctAnswer")
        }
-    if (questionsArray[questionNumber.value].buttonFour.isCorrect === false) {
+    if (questionsArray[quizStats.value].buttonFour.isCorrect === false) {
         answerButtons[3].classList.add ("incorrectAnswer")
        }
 }
 
 
 const handleCardChange = (event) => {
-   answerButtons[0].innerHTML = questionsArray[questionNumber.value].buttonOne.value;
-   answerButtons[1].innerHTML = questionsArray[questionNumber.value].buttonTwo.value;
-   answerButtons[2].innerHTML = questionsArray[questionNumber.value].buttonThree.value;
-   answerButtons[3].innerHTML = questionsArray[questionNumber.value].buttonFour.value;
+   currentQuestion.innerHTML = quizStats.number;
+   answerButtons[0].innerHTML = questionsArray[quizStats.value].buttonOne.value;
+   answerButtons[1].innerHTML = questionsArray[quizStats.value].buttonTwo.value;
+   answerButtons[2].innerHTML = questionsArray[quizStats.value].buttonThree.value;
+   answerButtons[3].innerHTML = questionsArray[quizStats.value].buttonFour.value;
+   questionText.innerHTML = questionsArray [quizStats.value].question; 
+   image.src = questionsArray[quizStats.value].image
    handleCorrectAnswer();
 
 }
 //do the same as above for incorrect instances see if you CAN use a for loop but i doubt it.
 
+
+//This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
         //INCREASE ARRAY INDEX HERE
@@ -114,15 +142,21 @@ console.log(questionsArray[0])
 start.addEventListener("click", () => {
     quizCard.innerHTML = `
     <div class="quizContainer">
+            <div class = "numberContainer">
+                <h4>Question <span id ="currentQuestion">1</span> of <span id = "maxQuestions">?</span></h4>
+            </div>
             <div class="imageContainer">
-                <img src="" alt="IMAGE TO DISPLAY HERE" class="displayImage">
+                <img class="displayImage" src="./images/ladybug-leaf.jpeg" alt="IMAGE TO DISPLAY HERE" >
+            </div>
+            <div class= "questionContainer">
+                <h3 id = "questionDisplay">How many insects can a lady bug eat in it's whole lifetime?</h3>
             </div>
             <div class="buttonContainer">
                 <div class="buttonRowOne">
-                    <button class="button buttonOne correctAnswer">B1C</button> <button class="button buttonTwo incorrectAnswer">B2</button>
+                    <button class="button buttonOne correctAnswer">5,000</button> <button class="button buttonTwo incorrectAnswer">10,000</button>
                 </div>
                 <div class = "buttonRowTwo">
-                    <button class="button buttonThree incorrectAnswer">B3</button> <button class="button buttonFour incorrectAnswer">B4</button> 
+                    <button class="button buttonThree incorrectAnswer">1 Million</button> <button class="button buttonFour incorrectAnswer">500,000</button> 
                 </div>
             </div>
             <div class="scoreContainer">
@@ -134,14 +168,16 @@ start.addEventListener("click", () => {
                 </div>
             </div>
         </div>`
-    image = document.querySelector("#displayImage");   
-    answerButtons = document.querySelectorAll(".button");
+    reDeclaredQueries();
+    questionCounter();
     answerButtons.forEach( (button) => {
         button.addEventListener("click", () => {
                 handleNextQuestion(button);
                 console.log(button)
             })
     })
+
+    console.log(image)
 })
 
 
