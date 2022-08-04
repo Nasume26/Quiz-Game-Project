@@ -60,4 +60,12 @@ img {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+.correctAnswerBG {
+  background: green;
+}
+
+.incorrectAnswerBG {
+  background: red;
 }/*# sourceMappingURL=style.css.map */

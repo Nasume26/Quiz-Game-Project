@@ -23,11 +23,11 @@ const reDeclaredQueries = () => {
 
 const handleLiveLoss = () => {
     if (quizStats.lives >= 3 ) {
-        liveCounter.innerHTML = "XOO"
+        liveCounter.innerHTML = "Lives: XOO"
     }else if (quizStats.lives >= 2) {
-        liveCounter.innerHTML = "XXO"
+        liveCounter.innerHTML = "Lives: XXO"
     }else if (quizStats.lives >= 1) {
-        liveCounter.innerHTML = "XXX LAST LIFE!!!"
+        liveCounter.innerHTML = "Lives: XXX LAST LIFE!!!"
         console.log(quizStats.lives)
     } else if (quizStats.lives >= 0) {
         quizCard.innerHTML = `
@@ -116,9 +116,29 @@ const questionsArray = [{
         value: "500 Trillion",
         isCorrect: false
     },
-    image : "./images/download.png",
+    image : "./images/insectsintheworld.jpeg",
 
     question: "Roughly how many insects are there in the world?"
+},{
+    buttonOne : {
+        value: "100 Million Years",
+        isCorrect: false
+    },
+    buttonTwo : {
+        value: "300 Million Years",
+        isCorrect: true
+    },
+    buttonThree : {
+        value: "250 Million Years",
+        isCorrect: false
+    },
+    buttonFour : {
+        value: "4 Billion Years",
+        isCorrect: false
+    },
+    image : "./images/download.png",
+
+    question: "Roughly how long have dragonflies been on earth?"
 }]
 
 //create a function called handleCorrect Answer
@@ -128,7 +148,7 @@ const handleQuestionChange = () => {
     quizStats.number = quizStats.number + 1;
 };
 
-const handleCorrectAnswer = () => {
+const handleCorrectAnswer = (event) => {
     if (questionsArray[quizStats.value].buttonOne.isCorrect === true) {
         answerButtons[0].classList.add ("correctAnswer")
         console.log(answerButtons[0].classList)
@@ -157,6 +177,14 @@ const handleCorrectAnswer = () => {
        }
 }
 
+const removeCorrectBG = (event) => {
+    event.classList.remove("correctAnswerBG")
+    event.classList.remove("incorrectAnswerBG")
+}
+
+const timeoutBGS = (event) => {
+    setTimeout(removeCorrectBG, 500, event)
+}
 
 const handleCardChange = (event) => {
    quizStats.score = quizStats.score + 5; 
@@ -170,7 +198,7 @@ const handleCardChange = (event) => {
    answerButtons[3].innerHTML = questionsArray[quizStats.value].buttonFour.value;
    questionText.innerHTML = questionsArray [quizStats.value].question; 
    image.src = questionsArray[quizStats.value].image
-   handleCorrectAnswer();
+   handleCorrectAnswer(event);
 
 }
 //do the same as above for incorrect instances see if you CAN use a for loop but i doubt it.
@@ -185,7 +213,8 @@ const handleIncorrectAnswer = () => {
 //This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
-        
+        event.classList.add("correctAnswerBG")
+        timeoutBGS(event);
         answerButtons.forEach((button) => {
             button.classList.remove("correctAnswer")
             button.classList.remove("incorrectAnswer")
@@ -194,6 +223,8 @@ const handleNextQuestion = (event) => {
         handleCardChange(event);
     } else if (event.classList.contains ("incorrectAnswer")) {
         //CHange to class change of button (Make it red) and lower life points.
+       event.classList.add("incorrectAnswerBG");
+       timeoutBGS(event);
        handleIncorrectAnswer();
     }
 }
@@ -228,7 +259,7 @@ const startButtonOnReset = () => {
                 </div>
                 <div class="scoreContainer">
                     <div class="livesRemaining">
-                        <p id = "liveCounter">OOO</p>
+                        <p id = "liveCounter">Lives: OOO</p>
                     </div>
                     <div class="scoreTally">    
                         <p>Score: <span id = "scoreNumber">0</span></p>
