@@ -199,9 +199,49 @@ const questionsArray = [{
     image : "./images/queenbee.jpeg",
 
     question: "What does the 'piping' of a Queen Bee sound like?"
+},{
+    buttonOne : {
+        value: "Ladybugs",
+        isCorrect: true
+    },
+    buttonTwo : {
+        value: "Crickets",
+        isCorrect: false
+    },
+    buttonThree : {
+        value: "Butterflys",
+        isCorrect: false
+    },
+    buttonFour : {
+        value: "Bees",
+        isCorrect: true
+    },
+    image : "./images/garden.webp",
+
+    question: "Which of these bugs is beneficial to your garden?"
+},{
+    buttonOne : {
+        value: "1000 times",
+        isCorrect: false
+    },
+    buttonTwo : {
+        value: "80 times",
+        isCorrect: false
+    },
+    buttonThree : {
+        value: "50 times",
+        isCorrect: true
+    },
+    buttonFour : {
+        value: "10 times",
+        isCorrect: false
+    },
+    image : "./images/ants.webp",
+
+    question: "How many times an ant's weight is the same ant able to carry?"
 },]
 
-//all questions taken from facts.net/bug-facts
+//all questions taken from facts.net/bug-facts and si.edu
 
 //create a function called handleCorrect Answer
 
@@ -213,8 +253,6 @@ const handleQuestionChange = () => {
 const handleCorrectAnswer = (event) => {
     if (questionsArray[quizStats.value].buttonOne.isCorrect === true) {
         answerButtons[0].classList.add ("correctAnswer")
-        console.log(answerButtons[0].classList)
-        console.log(answerButtons[1].classList)
        } 
     if (questionsArray[quizStats.value].buttonOne.isCorrect === false) {
         answerButtons[0].classList.add ("incorrectAnswer")
