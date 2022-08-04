@@ -1,11 +1,13 @@
 //add query selector to button -> add event listener to button.
 const start = document.querySelector(".start")
 const quizCard = document.querySelector(".quizCard")
+const resetButton = document.querySelector("#resetButton")
 let answerButtons = document.querySelectorAll(".button")
 let image = document.querySelector(".displayImage")
 let questionText = document.querySelector("#questionDisplay")
 let currentQuestion = document.querySelector("#currentQuestion")
 let maxQuestions = document.querySelector("#maxQuestions")
+let scoreNumber = document.querySelector("#scoreNumber")
 
 
 const reDeclaredQueries = () => {
@@ -14,10 +16,32 @@ const reDeclaredQueries = () => {
     maxQuestions = document.querySelector ("#maxQuestions");
     questionText = document.querySelector("#questionDisplay");   
     answerButtons = document.querySelectorAll(".button");
+    scoreNumber = document.querySelector("#scoreNumber")
 };
 
-const questionCounter = () => {
+
+const handleReset = () => {
+    resetButton.addEventListener("click", () => {
+        quizStats.number = 1;
+        quizStats.score = 0;
+        quizStats.lives = 3;
+        quizStats.value = 0;
+        startButtonOnReset();
+    })
+}
+
+const handleScoreDecrement = () => {
+    if (quizStats.score <= 2) {
+        quizStats.score = 0;
+    } else if (quizStats.score > 2) {
+        quizStats.score = quizStats.score - 2;
+    }
+}
+
+const handleQuizStats = () => {
     maxQuestions.innerHTML = questionsArray.length;
+    scoreNumber.innerHTML = quizStats.score;
+    currentQuestion.innerHTML = quizStats.number;
 }
 
 const quizStats = {
@@ -108,7 +132,9 @@ const handleCorrectAnswer = () => {
 
 
 const handleCardChange = (event) => {
-   currentQuestion.innerHTML = quizStats.number;
+   quizStats.score = quizStats.score + 5; 
+   handleQuizStats();
+   handleReset();
    answerButtons[0].innerHTML = questionsArray[quizStats.value].buttonOne.value;
    answerButtons[1].innerHTML = questionsArray[quizStats.value].buttonTwo.value;
    answerButtons[2].innerHTML = questionsArray[quizStats.value].buttonThree.value;
@@ -124,7 +150,7 @@ const handleCardChange = (event) => {
 //This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
-        //INCREASE ARRAY INDEX HERE
+        
         answerButtons.forEach((button) => {
             button.classList.remove("correctAnswer")
             button.classList.remove("incorrectAnswer")
@@ -133,52 +159,97 @@ const handleNextQuestion = (event) => {
         handleCardChange(event);
     } else if (event.classList.contains ("incorrectAnswer")) {
         //CHange to class change of button (Make it red) and lower life points.
+        handleScoreDecrement();
+        handleQuizStats();
         console.log("Incorrect Button Pressed")
     }
 }
 
 console.log(questionsArray[0])
 
-start.addEventListener("click", () => {
-    quizCard.innerHTML = `
-    <div class="quizContainer">
-            <div class = "numberContainer">
-                <h4>Question <span id ="currentQuestion">1</span> of <span id = "maxQuestions">?</span></h4>
-            </div>
-            <div class="imageContainer">
-                <img class="displayImage" src="./images/ladybug-leaf.jpeg" alt="IMAGE TO DISPLAY HERE" >
-            </div>
-            <div class= "questionContainer">
-                <h3 id = "questionDisplay">How many insects can a lady bug eat in it's whole lifetime?</h3>
-            </div>
-            <div class="buttonContainer">
-                <div class="buttonRowOne">
-                    <button class="button buttonOne correctAnswer">5,000</button> <button class="button buttonTwo incorrectAnswer">10,000</button>
+    start.addEventListener("click", () => {
+        quizCard.innerHTML = `
+        <div class="quizContainer">
+                <div class = "numberContainer">
+                    <h4>Question <span id ="currentQuestion">1</span> of <span id = "maxQuestions">?</span></h4>
                 </div>
-                <div class = "buttonRowTwo">
-                    <button class="button buttonThree incorrectAnswer">1 Million</button> <button class="button buttonFour incorrectAnswer">500,000</button> 
+                <div class="imageContainer">
+                    <img class="displayImage" src="./images/ladybug-leaf.jpeg" alt="IMAGE TO DISPLAY HERE" >
                 </div>
-            </div>
-            <div class="scoreContainer">
-                <div class="livesRemaining">
-                    <p>OOO</p>
+                <div class= "questionContainer">
+                    <h3 id = "questionDisplay">How many insects can a lady bug eat in it's whole lifetime?</h3>
                 </div>
-                <div class="scoreTally">    
-                    <p>Score:</p>
+                <div class="buttonContainer">
+                    <div class="buttonRowOne">
+                        <button class="button buttonOne correctAnswer">5,000</button> <button class="button buttonTwo incorrectAnswer">10,000</button>
+                    </div>
+                    <div class = "buttonRowTwo">
+                        <button class="button buttonThree incorrectAnswer">1 Million</button> <button class="button buttonFour incorrectAnswer">500,000</button> 
+                    </div>
                 </div>
-            </div>
-        </div>`
-    reDeclaredQueries();
-    questionCounter();
-    answerButtons.forEach( (button) => {
-        button.addEventListener("click", () => {
-                handleNextQuestion(button);
-                console.log(button)
-            })
+                <div class="scoreContainer">
+                    <div class="livesRemaining">
+                        <p>OOO</p>
+                    </div>
+                    <div class="scoreTally">    
+                        <p>Score: <span id = "scoreNumber">0</span></p>
+                    </div>
+                </div>
+            </div>`
+        reDeclaredQueries();
+        handleQuizStats();
+        handleReset();
+        answerButtons.forEach( (button) => {
+            button.addEventListener("click", () => {
+                    handleNextQuestion(button);
+                    console.log(button)
+                })
+        })
+    
     })
 
-    console.log(image)
-})
+
+
+const startButtonOnReset = () => {
+    quizCard.innerHTML = `
+        <div class="quizContainer">
+                <div class = "numberContainer">
+                    <h4>Question <span id ="currentQuestion">1</span> of <span id = "maxQuestions">?</span></h4>
+                </div>
+                <div class="imageContainer">
+                    <img class="displayImage" src="./images/ladybug-leaf.jpeg" alt="IMAGE TO DISPLAY HERE" >
+                </div>
+                <div class= "questionContainer">
+                    <h3 id = "questionDisplay">How many insects can a lady bug eat in it's whole lifetime?</h3>
+                </div>
+                <div class="buttonContainer">
+                    <div class="buttonRowOne">
+                        <button class="button buttonOne correctAnswer">5,000</button> <button class="button buttonTwo incorrectAnswer">10,000</button>
+                    </div>
+                    <div class = "buttonRowTwo">
+                        <button class="button buttonThree incorrectAnswer">1 Million</button> <button class="button buttonFour incorrectAnswer">500,000</button> 
+                    </div>
+                </div>
+                <div class="scoreContainer">
+                    <div class="livesRemaining">
+                        <p>OOO</p>
+                    </div>
+                    <div class="scoreTally">    
+                        <p>Score: <span id = "scoreNumber">0</span></p>
+                    </div>
+                </div>
+            </div>`
+            reDeclaredQueries();
+            handleQuizStats();
+            handleReset();
+            answerButtons.forEach( (button) => {
+                button.addEventListener("click", () => {
+                        handleNextQuestion(button);
+                        console.log(button)
+                    })
+            })
+        
+}
 
 
 
