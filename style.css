@@ -66,10 +66,10 @@ body {
   padding-bottom: 10px;
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne #correctAnswerBG, .quizCard .quizContainer .buttonContainer .buttonRowTwo #correctAnswerBG {
-  background: green;
+  background: rgb(99, 216, 99);
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne #incorrectAnswerBG, .quizCard .quizContainer .buttonContainer .buttonRowTwo #incorrectAnswerBG {
-  background: red;
+  background: rgb(204, 85, 85);
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne .button, .quizCard .quizContainer .buttonContainer .buttonRowTwo .button {
   padding: 5%;
