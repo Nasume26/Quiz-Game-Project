@@ -156,9 +156,29 @@ const questionsArray = [{
         value: "White Witch Moth",
         isCorrect: true
     },
-    image : "./images/whitewitchmoth.jpeg",
+    image : "./images/weather.jpeg",
 
     question: "Which of these is the largest insect in the world"
+},{
+    buttonOne : {
+        value: "Pillbugs",
+        isCorrect: false
+    },
+    buttonTwo : {
+        value: "Moths",
+        isCorrect: false
+    },
+    buttonThree : {
+        value: "Crickets",
+        isCorrect: true
+    },
+    buttonFour : {
+        value: "Beetles",
+        isCorrect: false
+    },
+    image : "./images/dragonfliesonearth.jpeg",
+
+    question: "Which of these bugs are thought to predict the weather in one way or the other"
 },]
 
 //create a function called handleCorrect Answer
