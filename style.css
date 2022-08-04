@@ -129,7 +129,14 @@ body {
   background: rgb(127, 138, 236);
 }
 
-#resetButton {
+header {
+  display: flex;
+  justify-content: center;
+  background: rgb(128, 77, 77);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+header #resetButton {
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
@@ -138,12 +145,10 @@ body {
   border-radius: 10px;
   color: rgb(255, 255, 255);
   font-size: 1.2rem;
+  box-shadow: 3px 3px rgb(51, 19, 19);
 }
-
-header {
-  display: flex;
-  justify-content: center;
-  background: rgb(128, 77, 77);
+header #resetButton:hover {
+  background: rgb(192, 103, 103);
 }
 
 .incorrectAnswerBG {

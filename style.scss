@@ -170,16 +170,7 @@ body {
     background:rgb(127, 138, 236);
 }
 
-#resetButton {
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 2px solid rgb(98, 34, 34);
-    background: rgb(161, 56, 56);
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-}
+
 
 
 
@@ -187,6 +178,23 @@ header {
     display: flex;
     justify-content: center;
     background: $primaryHeaderColor;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    #resetButton {
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border: 2px solid rgb(98, 34, 34);
+        background: rgb(161, 56, 56);
+        border-radius: 10px;
+        color: rgb(255, 255, 255);
+        font-size: 1.2rem;
+        box-shadow:3px 3px rgb(51, 19, 19);
+    }
+    #resetButton:hover {
+        background:rgb(192, 103, 103);
+    }
 }
 
 
