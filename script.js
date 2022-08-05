@@ -46,34 +46,34 @@ const handleIncorrectAnswer = () => {
     handleScoreDecrement();
     handleQuizStats();
     handleLiveLoss();
-}
+};
 
 //This function figures out which of the buttons needs to be the new correct answer.
 const handleCorrectAnswer = (event) => {
     if (questionsArray[quizStats.value].buttonOne.isCorrect === true) {
         answerButtons[0].classList.add ("correctAnswer")
-       } 
+       }; 
     if (questionsArray[quizStats.value].buttonOne.isCorrect === false) {
         answerButtons[0].classList.add ("incorrectAnswer")
-       } 
+       };
     if (questionsArray[quizStats.value].buttonTwo.isCorrect === true) {
         answerButtons[1].classList.add ("correctAnswer")
-       }
+       };
     if (questionsArray[quizStats.value].buttonTwo.isCorrect === false) {
         answerButtons[1].classList.add ("incorrectAnswer")
-       }
+       };
     if (questionsArray[quizStats.value].buttonThree.isCorrect === true) {
         answerButtons[2].classList.add ("correctAnswer")
-       }
+       };
     if (questionsArray[quizStats.value].buttonThree.isCorrect === false) {
         answerButtons[2].classList.add ("incorrectAnswer")
-       } 
+       }; 
     if (questionsArray[quizStats.value].buttonFour.isCorrect === true) {
         answerButtons[3].classList.add ("correctAnswer")
-       }
+       };
     if (questionsArray[quizStats.value].buttonFour.isCorrect === false) {
         answerButtons[3].classList.add ("incorrectAnswer")
-       }
+       };
 }
 
 //Handles when the decrement of score when an incorrect answer is submitted. Makes sure score can not go lower than 0.
@@ -88,7 +88,6 @@ const handleScoreDecrement = () => {
 //This function handles the changing of the card data whenever a correct answer is entered.
 const handleCardChange = (event) => {
     quizStats.score = quizStats.score + 5; 
-    
     handleQuizStats();
     handleWin();
     handleReset();
@@ -97,37 +96,35 @@ const handleCardChange = (event) => {
     answerButtons[2].innerHTML = questionsArray[quizStats.value].buttonThree.value;
     answerButtons[3].innerHTML = questionsArray[quizStats.value].buttonFour.value;
     questionText.innerHTML = questionsArray [quizStats.value].question; 
-    image.src = questionsArray[quizStats.value].image
+    image.src = questionsArray[quizStats.value].image;
     handleCorrectAnswer(event);
- 
- }
+ };
 
  //Handles a timeout function in order for the updating of a card to take half a second. This allows the correct answer
  //style to display for half a second before moving on to the next question.
  const timeoutCardChange = (event) => {
-    setTimeout(handleQuestionChange, 500, event)
-    setTimeout(handleCardChange, 500, event)
-}
+    setTimeout(handleQuestionChange, 500, event);
+    setTimeout(handleCardChange, 500, event);
+};
 
 //Handles timeout of background effect class for correct and incorrect answers.
 const timeoutBGS = (event) => {
-    setTimeout(removeCorrectBG, 500, event)
-}
+    setTimeout(removeCorrectBG, 500, event);
+};
 
 //Removes the ID of the button, used for background management on incorrect and correct Backgrounds.
 const removeCorrectBG = (event) => {
     event.id = "";
-    console.log(event)
-}
+};
 
 //This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
     if (event.classList.contains ("correctAnswer")) {
-        event.id = "correctAnswerBG"
+        event.id = "correctAnswerBG";
         timeoutBGS(event);
         answerButtons.forEach((button) => {
-            button.classList.remove("correctAnswer")
-            button.classList.remove("incorrectAnswer")
+            button.classList.remove("correctAnswer");
+            button.classList.remove("incorrectAnswer");
         });
      timeoutCardChange(event);
     } else if (event.classList.contains ("incorrectAnswer")) {
@@ -173,7 +170,7 @@ const startButtonOnReset = () => {
                         <p>Score: <span id = "scoreNumber">0</span></p>
                     </div>
                 </div>
-            </div>`
+            </div>`;
             reDeclaredQueries();
             handleQuizStats();
             handleReset();
@@ -183,7 +180,7 @@ const startButtonOnReset = () => {
                     })
             })
         
-}
+};
 
 //Handles win conditions, player must make it to the final question with at least one life remaining.
 const handleWin = () => {
@@ -193,29 +190,27 @@ const handleWin = () => {
             <h1 id = "winText">YOU WIN!!!</h1>
             <h3>You had a score of ${quizStats.score}.</h3>
         </div>
-        `
+        `;
     };
 };
 
 //This function is responsible for handling lives. If a player loses all of their lives, the loss screen is rendered.
 const handleLiveLoss = () => {
     if (quizStats.lives >= 3 ) {
-        liveCounter.innerHTML = "Lives: XOO"
+        liveCounter.innerHTML = "Lives: XOO";
     }else if (quizStats.lives >= 2) {
-        liveCounter.innerHTML = "Lives: XXO"
+        liveCounter.innerHTML = "Lives: XXO";
     }else if (quizStats.lives >= 1) {
-        liveCounter.innerHTML = "Lives: XXX LAST LIFE!!!"
-        console.log(quizStats.lives)
+        liveCounter.innerHTML = "Lives: XXX LAST LIFE!!!";
     } else if (quizStats.lives >= 0) {
         quizCard.innerHTML = `
         <div id= "lossContainer">
             <h3>You Lost! Hit Reset to try again!</h3>
             <h4>You had a score of ${quizStats.score}.</h4>
         </div>
-        `
-    }
+        `;
+    };
     quizStats.lives = quizStats.lives -1;
-    console.log(quizStats.lives)
 }; 
 
 //Handles the reset button. Returns to question 1 and resets all score and live values.
@@ -233,4 +228,4 @@ const handleReset = () => {
 //Starts the game.
 start.addEventListener("click", () => {
     startButtonOnReset()
-})
+});
