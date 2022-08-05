@@ -12,6 +12,9 @@ let scoreNumber = document.querySelector("#scoreNumber")
 let liveCounter = document.querySelector("#liveCounter")
 
 
+//Questions array with all the questions inside objects. 
+const questionsArray = questionsJSON;
+
 const reDeclaredQueries = () => {
     image = document.querySelector(".displayImage");
     currentQuestion = document.querySelector("#currentQuestion");
@@ -40,7 +43,7 @@ const handleLiveLoss = () => {
     }
     quizStats.lives = quizStats.lives -1;
     console.log(quizStats.lives)
-} 
+}; 
 
 const handleWin = () => {
     if (quizStats.number > questionsArray.length) {
@@ -61,35 +64,20 @@ const handleReset = () => {
         quizStats.value = 0;
         startButtonOnReset();
     })
-}
-
-const handleScoreDecrement = () => {
-    if (quizStats.score <= 2) {
-        quizStats.score = 0;
-    } else if (quizStats.score > 2) {
-        quizStats.score = quizStats.score - 2;
-    };
-}
+};
 
 const handleQuizStats = () => {
     maxQuestions.innerHTML = questionsArray.length;
     scoreNumber.innerHTML = quizStats.score;
     currentQuestion.innerHTML = quizStats.number;
-}
+};
 
 const quizStats = {
     value : 0,
     number : 1,
     score : 0,
     lives: 3
-}
-
-//Questions array with all the questions inside objects. 
-const questionsArray = questionsJSON;
-
-//all questions taken from facts.net/bug-facts and si.edu
-
-//create a function called handleCorrect Answer
+};
 
 const handleQuestionChange = () => {
     quizStats.value = quizStats.value + 1;
@@ -152,14 +140,20 @@ const handleCardChange = (event) => {
    handleCorrectAnswer(event);
 
 }
-//do the same as above for incorrect instances see if you CAN use a for loop but i doubt it.
-
 
 const handleIncorrectAnswer = () => {
     handleScoreDecrement();
     handleQuizStats();
     handleLiveLoss();
 }
+
+const handleScoreDecrement = () => {
+    if (quizStats.score <= 2) {
+        quizStats.score = 0;
+    } else if (quizStats.score > 2) {
+        quizStats.score = quizStats.score - 2;
+    };
+};
 
 //This is where we detect if an answer is correct. If it is move to next question using handleCardChange. 
 const handleNextQuestion = (event) => {
@@ -178,14 +172,6 @@ const handleNextQuestion = (event) => {
        handleIncorrectAnswer();
     }
 }
-
-
-
-start.addEventListener("click", () => {
-    startButtonOnReset()
-})
-
-
 
 const startButtonOnReset = () => {
     quizCard.innerHTML = `
@@ -226,3 +212,7 @@ const startButtonOnReset = () => {
             })
         
 }
+
+start.addEventListener("click", () => {
+    startButtonOnReset()
+})
