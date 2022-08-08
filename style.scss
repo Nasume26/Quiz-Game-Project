@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
 
-$primaryBackgroundColor : rgb(189, 134, 134);
-$primaryHeaderColor: rgb(128, 77, 77);
-$primaryButtonBackgroundColor: rgb(118, 118, 209);
-$hoverButtonBackgroundColor: rgb(171, 171, 242);
-$primaryButtonBorderColor: rgb(88, 88, 209);
-$primaryButtonShadowColor: rgb(72, 72, 155);
-$numberContainerBackground: rgb(199, 95, 95);
+$primaryBackgroundColor : rgb(183, 226, 204);
+$primaryHeaderColor: rgb(103, 173, 161);
+$primaryButtonBackgroundColor: rgb(159, 232, 212);
+$hoverButtonBackgroundColor: rgb(174, 220, 230);
+$primaryButtonBorderColor: rgb(24, 24, 108);
+$primaryButtonShadowColor: rgb(10, 10, 53);
+$numberContainerBackground: rgb(34, 111, 227);
 $primaryFont : 'Mouse Memoirs', sans-serif;
-$primaryImageBackground: rgb(223, 78, 78);
-$quizContainerBorderColor: rgb(78, 26, 26);
-$questionContainerBackground: rgb(147, 55, 55);
-$answerContainerBackground: rgb(90, 28, 28);
-$scoreContainerBackground: rgb(51, 19, 19);
+$primaryImageBackground: rgb(46, 88, 194);
+$quizContainerBorderColor: rgb(8, 38, 72);
+$questionContainerBackground: rgb(127, 149, 213);
+$answerContainerBackground: rgb(73, 79, 199);
+$scoreContainerBackground: rgb(38, 40, 152);
 $scoreFontColor: white;
 
 * {
@@ -48,7 +48,7 @@ body {
         align-items: center;
         width: 90%;
         border-radius: 15px;
-        box-shadow: 2px 2px rgb(57, 21, 21);
+        box-shadow: 2px 2px rgb(5, 18, 59);
 
 
         .numberContainer {
