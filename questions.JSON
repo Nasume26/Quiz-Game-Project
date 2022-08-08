@@ -158,4 +158,24 @@
     "image" : "./images/ants.webp",
 
     "question": "How many times an ant's weight is the same ant able to carry?"
+},{
+    "buttonOne" : {
+        "value": "One Third",
+        "isCorrect": true
+    },
+    "buttonTwo" : {
+        "value": "One Fifth",
+        "isCorrect": false
+    },
+    "buttonThree" : {
+        "value": "One in a half",
+        "isCorrect": false
+    },
+    "buttonFour" : {
+        "value": "One Eighth",
+        "isCorrect": false
+    },
+    "image" : "./images/meat.jpeg",
+
+    "question": "What fraction of all insect species is known to be carnivorous?"
 }]
