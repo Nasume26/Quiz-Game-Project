@@ -126,6 +126,7 @@ body {
   border: 2px solid rgb(29, 72, 131);
   box-shadow: 3px 3px rgb(24, 47, 112);
   color: white;
+  z-index: 100;
 }
 
 .start:hover {
