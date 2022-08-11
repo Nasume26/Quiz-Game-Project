@@ -64,7 +64,6 @@ body {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  z-index: 100;
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne #correctAnswerBG, .quizCard .quizContainer .buttonContainer .buttonRowTwo #correctAnswerBG {
   background: rgb(99, 216, 99);
@@ -84,6 +83,7 @@ body {
   box-shadow: 3px 3px rgb(10, 10, 53);
   font-size: 1.1rem;
   color: rgb(17, 17, 17);
+  z-index: 100;
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne .button:hover, .quizCard .quizContainer .buttonContainer .buttonRowTwo .button:hover {
   background: rgb(174, 220, 230);
