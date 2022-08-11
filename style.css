@@ -64,6 +64,7 @@ body {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
+  z-index: 100;
 }
 .quizCard .quizContainer .buttonContainer .buttonRowOne #correctAnswerBG, .quizCard .quizContainer .buttonContainer .buttonRowTwo #correctAnswerBG {
   background: rgb(99, 216, 99);
