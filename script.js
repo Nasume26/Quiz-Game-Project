@@ -229,3 +229,42 @@ const handleReset = () => {
 start.addEventListener("click", () => {
     startButtonOnReset()
 });
+
+start.addEventListener("touchstart", () => {
+    quizCard.innerHTML = `
+    <div class="quizContainer">
+            <div class = "numberContainer">
+                <h4>Question <span id ="currentQuestion">1</span> of <span id = "maxQuestions">?</span></h4>
+            </div>
+            <div class="imageContainer">
+                <img class="displayImage" src="./images/ladybug-leaf.jpeg" alt="IMAGE TO DISPLAY HERE" >
+            </div>
+            <div class= "questionContainer">
+                <h3 id = "questionDisplay">How many insects can a lady bug eat in it's whole lifetime?</h3>
+            </div>
+            <div class="buttonContainer">
+                <div class="buttonRowOne">
+                    <button class="button buttonOne correctAnswer">5,000</button> <button class="button buttonTwo incorrectAnswer">10,000</button>
+                </div>
+                <div class = "buttonRowTwo">
+                    <button class="button buttonThree incorrectAnswer">1 Million</button> <button class="button buttonFour incorrectAnswer">500,000</button> 
+                </div>
+            </div>
+            <div class="scoreContainer">
+                <div class="livesRemaining">
+                    <p id = "liveCounter">Lives: OOO</p>
+                </div>
+                <div class="scoreTally">    
+                    <p>Score: <span id = "scoreNumber">0</span></p>
+                </div>
+            </div>
+        </div>`;
+        reDeclaredQueries();
+        handleQuizStats();
+        handleReset();
+        answerButtons.forEach( (button) => {
+            button.addEventListener("touchstart", () => {
+                    handleNextQuestion(button);
+                })
+        })
+})
